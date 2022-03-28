@@ -1,0 +1,29 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <% @employee.errors.full_messages.each do |message| %>
+      <%= render 'layouts/alerts', notice: message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field form-group m-2">
+    <%= f.text_field :name,
+    class: "form-control",
+    placeholder: "Enter your name" %>
+  </div>
+  <div class="field form-group m-2">
+    <%= f.text_field :email,
+    class: "form-control",
+    placeholder: "Enter your email" %>
+  </div>
+  <div class="field form-group m-2">
+    <%= f.text_field :phone,
+    class: "form-control",
+    placeholder: "Enter your contact" %>
+  </div>
+  <hr class="my-4">
+  <div class="actions m-2">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+<% end %>
